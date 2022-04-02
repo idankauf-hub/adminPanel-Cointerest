@@ -1,13 +1,12 @@
-import "./datatable.scss";
+import "./datatableCoins.scss";
 import { DataGrid } from "@mui/x-data-grid";
-import { userColumns, userRows } from "../../datatablesource";
+import { coinsColumns} from "../../datatablesource";
 import { Link } from "react-router-dom";
 import { useState,useEffect } from "react";
 import { userInputs } from "../../formSource";
-import { LocalFireDepartment } from "@mui/icons-material";
 
-let users;
-const Datatable = (props) => {
+let coins;
+const DatatableCoins = (props) => {
   const [data, setData] = useState();
 
   const handleDelete = (id) => {
@@ -31,38 +30,9 @@ const Datatable = (props) => {
         (result) => {
           console.log("Coins res: "+JSON.stringify(result))
           setData(result)
-         
+          coins=result
 
-          console.log("Coins Data: "+ JSON.stringify(data) )
-
-        },
-        (error) => {
-          console.log("err post=", error);
-        }
-      );
-  };
-  const getUsers=()=>{
-    fetch("http://194.90.158.74/bgroup53/test2/tar4/api/Users/?search=", {
-      method: "GET",
-      headers: new Headers({
-        "Content-Type": "application/json; charset=UTF-8",
-      }),
-    })
-      .then((res) => {
-        console.log("res=", res);
-        console.log("res.status", res.status);
-        console.log("res.ok", res.ok);
-        return res.json();
-      })
-      .then(
-        (result) => {
-          console.log(result[0])
-          console.log(result[0])
-          users=result
-          console.log(users[0])
-          setData(result)
-
-          console.log("data: "+ data)
+          console.log(coins)
 
         },
         (error) => {
@@ -70,6 +40,7 @@ const Datatable = (props) => {
         }
       );
   };
+  
 
 
 
@@ -97,12 +68,9 @@ const Datatable = (props) => {
   ];
 
   useEffect(() => {
-    getUsers()
+    getCoins()
   },[])
-  // if(data == undefined){
-  //   alert("fff")
-  // return <div><p>hello</p></div>
-  // }
+
   return (
     <div className="datatable">
       <div className="datatableTitle">
@@ -113,8 +81,8 @@ const Datatable = (props) => {
       </div>
       <DataGrid
         className="datagrid"
-        rows={users}
-        columns={userColumns.concat(actionColumn)}
+        rows={coins}
+        columns={coinsColumns}
         pageSize={9}
         getRowId={(row) => row.Email}
         rowsPerPageOptions={[9]}
@@ -124,4 +92,4 @@ const Datatable = (props) => {
   );
 };
 
-export default Datatable;
+export default DatatableCoins;

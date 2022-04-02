@@ -42,7 +42,7 @@ const Sidebar = () => {
               <span>Users</span>
             </li>
           </Link>
-          <Link to="/products" style={{ textDecoration: "none" }}>
+          <Link to="/coins" style={{ textDecoration: "none" }}>
             <li>
               <CurrencyBitcoinIcon className="icon" />
               <span>Coins</span>

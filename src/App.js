@@ -19,15 +19,15 @@ function App() {
           <Route path="/">
             <Route index element={<Home />} />
             <Route path="users">
-              <Route index element={<List />} />
+              <Route index element={<List action="users" />} />
               <Route path=":userId" element={<Single />} />
               <Route
                 path="new"
                 element={<New inputs={userInputs} title="Add New User" />}
               />
             </Route>
-            <Route path="products">
-              <Route index element={<List />} />
+            <Route path="coins">
+              <Route index element={<List action="coins" />} />
               <Route path=":productId" element={<Single />} />
               <Route
                 path="new"
