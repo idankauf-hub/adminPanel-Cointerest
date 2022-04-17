@@ -8,7 +8,6 @@ export const userColumns = [
     headerName: "User",
     width: 280,
     renderCell: (params) => {
-      console.log("row: " +JSON.stringify(params.row.Username) )
       return (
         <div className="cellWithImg">
           <img className="cellImg" src={params.row.Image} alt="avatar" />
@@ -22,7 +21,6 @@ export const userColumns = [
     headerName: "Email",
     width: 280,
     renderCell: (params) => {
-      console.log("row: " +JSON.stringify(params.row.Username) )
       return (
         <div className="cellWithImg">
           {params.row.Email}
@@ -43,7 +41,7 @@ export const coinsColumns = [
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
-          <img className="cellImg"  alt="avatar" />
+          <img className="cellImg" src={params.row.Coin_picture} alt="avatar" />
           {params.row.Coin_name}
         </div>
       );

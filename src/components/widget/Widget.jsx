@@ -31,9 +31,9 @@ const Widget = ({ type }) => {
       break;
     case "order":
       data = {
-        title: "ORDERS",
+        title: "COINS",
         isMoney: false,
-        link: "View all orders",
+        link: "View all coins",
         icon: (
           <ShoppingCartOutlinedIcon
             className="icon"

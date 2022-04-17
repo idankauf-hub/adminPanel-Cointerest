@@ -1,8 +1,8 @@
 import "./datatableCoins.scss";
 import { DataGrid } from "@mui/x-data-grid";
-import { coinsColumns} from "../../datatablesource";
+import { coinsColumns } from "../../datatablesource";
 import { Link } from "react-router-dom";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { userInputs } from "../../formSource";
 
 let coins;
@@ -13,7 +13,7 @@ const DatatableCoins = (props) => {
     setData(data.filter((item) => item.id !== id));
   };
 
-  const getCoins=()=>{
+  const getCoins = () => {
     fetch("http://194.90.158.74/bgroup53/test2/tar4/api/Coins", {
       method: "GET",
       headers: new Headers({
@@ -28,21 +28,16 @@ const DatatableCoins = (props) => {
       })
       .then(
         (result) => {
-          console.log("Coins res: "+JSON.stringify(result))
-          setData(result)
-          coins=result
-
-          console.log(coins)
-
+          console.log("Coins res: " + JSON.stringify(result));
+          // coins=result
+          setData(result);
+          console.log(coins);
         },
         (error) => {
           console.log("err post=", error);
         }
       );
   };
-  
-
-
 
   const actionColumn = [
     {
@@ -52,15 +47,12 @@ const DatatableCoins = (props) => {
       renderCell: (params) => {
         return (
           <div className="cellAction">
-            <Link to="/users/test" style={{ textDecoration: "none" }}>
+            <Link
+              to={"/coins/"+params.row.Coin_name} state= "bitcoin"
+              style={{ textDecoration: "none" }}
+            >
               <div className="viewButton">View</div>
             </Link>
-            <div
-              className="deleteButton"
-              onClick={() => handleDelete(params.row.id)}
-            >
-              Delete
-            </div>
           </div>
         );
       },
@@ -68,23 +60,23 @@ const DatatableCoins = (props) => {
   ];
 
   useEffect(() => {
-    getCoins()
-  },[])
+    getCoins();
+  }, []);
 
   return (
-    <div className="datatable">
+    <div className="datatableCoins">
       <div className="datatableTitle">
-        Add New User
+        Add New Coin
         <Link to="/users/new" className="link">
           Add New
         </Link>
       </div>
       <DataGrid
         className="datagrid"
-        rows={coins}
-        columns={coinsColumns}
+        rows={data}
+        columns={coinsColumns.concat(actionColumn)}
         pageSize={9}
-        getRowId={(row) => row.Email}
+        getRowId={(row) => row.Coin_name}
         rowsPerPageOptions={[9]}
         checkboxSelection
       />

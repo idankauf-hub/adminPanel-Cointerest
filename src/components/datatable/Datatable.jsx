@@ -3,44 +3,17 @@ import { DataGrid } from "@mui/x-data-grid";
 import { userColumns, userRows } from "../../datatablesource";
 import { Link } from "react-router-dom";
 import { useState,useEffect } from "react";
-import { userInputs } from "../../formSource";
-import { LocalFireDepartment } from "@mui/icons-material";
+
 
 let users;
 const Datatable = (props) => {
   const [data, setData] = useState();
 
   const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
+    setData(users.filter((item) => item.id !== id));
   };
 
-  const getCoins=()=>{
-    fetch("http://194.90.158.74/bgroup53/test2/tar4/api/Coins", {
-      method: "GET",
-      headers: new Headers({
-        "Content-Type": "application/json; charset=UTF-8",
-      }),
-    })
-      .then((res) => {
-        console.log("res=", res);
-        console.log("res.status", res.status);
-        console.log("res.ok", res.ok);
-        return res.json();
-      })
-      .then(
-        (result) => {
-          console.log("Coins res: "+JSON.stringify(result))
-          setData(result)
-         
-
-          console.log("Coins Data: "+ JSON.stringify(data) )
-
-        },
-        (error) => {
-          console.log("err post=", error);
-        }
-      );
-  };
+  
   const getUsers=()=>{
     fetch("http://194.90.158.74/bgroup53/test2/tar4/api/Users/?search=", {
       method: "GET",
@@ -56,14 +29,8 @@ const Datatable = (props) => {
       })
       .then(
         (result) => {
-          console.log(result[0])
-          console.log(result[0])
-          users=result
-          console.log(users[0])
+          // users=result
           setData(result)
-
-          console.log("data: "+ data)
-
         },
         (error) => {
           console.log("err post=", error);
@@ -77,13 +44,15 @@ const Datatable = (props) => {
     {
       field: "action",
       headerName: "Action",
-      width: 200,
+      width: 180,
       renderCell: (params) => {
         return (
           <div className="cellAction">
             <Link to="/users/test" style={{ textDecoration: "none" }}>
               <div className="viewButton">View</div>
+
             </Link>
+            
             <div
               className="deleteButton"
               onClick={() => handleDelete(params.row.id)}
@@ -113,7 +82,7 @@ const Datatable = (props) => {
       </div>
       <DataGrid
         className="datagrid"
-        rows={users}
+        rows={data}
         columns={userColumns.concat(actionColumn)}
         pageSize={9}
         getRowId={(row) => row.Email}
