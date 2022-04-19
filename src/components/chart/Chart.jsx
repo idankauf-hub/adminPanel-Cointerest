@@ -45,6 +45,7 @@ const Chart = ({ aspect, title }) => {
             fill="url(#total)"
           />
         </AreaChart>
+        
       </ResponsiveContainer>
     </div>
   );

@@ -8,9 +8,9 @@ import {useParams} from "react-router-dom"
 const Single = (props) => {
   const [data, setData] = useState();
   let params=useParams();
-  console.log(params)
+  console.log(params.userId)
   const getUser=()=>{
-    fetch("http://194.90.158.74/bgroup53/test2/tar4/api/Users/?email=tomer123@gmail.com&n=1", {
+    fetch("http://194.90.158.74/bgroup53/test2/tar4/api/Users/?email="+params.userId+"&n=1", {
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json; charset=UTF-8",

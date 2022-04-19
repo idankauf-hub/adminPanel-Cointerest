@@ -48,7 +48,7 @@ const DatatableCoins = (props) => {
         return (
           <div className="cellAction">
             <Link
-              to={"/coins/"+params.row.Coin_name} state= "bitcoin"
+              to={"/coins/"+params.row.Coin_name} 
               style={{ textDecoration: "none" }}
             >
               <div className="viewButton">View</div>
