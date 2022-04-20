@@ -1,6 +1,23 @@
+.status {
+  padding: 5px;
+  border-radius: 5px;
+  &.Positive {
+    color: green;
+    background-color: rgba(0, 128, 0, 0.151);
+  }
+  &.Negative {
+    color: red;
+    background-color: rgba(189, 189, 3, 0.103);
+  }
+}
+.row{
+  display:inline;
+}
 .single {
+
   display: flex;
   width: 100%;
+
   .singleContainer {
     flex: 6;
 
@@ -44,8 +61,12 @@
               margin-bottom: 10px;
               color: #555;
             }
-
+            .row{
+              background-color: darkblue;
+              float: left;
+            }
             .detailItem {
+              margin-top: 5px;
               margin-bottom: 10px;
               font-size: 14px;
 
@@ -59,13 +80,12 @@
                 font-weight: 300;
               }
             }
+          
           }
         }
       }
 
-      .right {
-        flex: 2;
-      }
+      
     }
 
     .bottom {
