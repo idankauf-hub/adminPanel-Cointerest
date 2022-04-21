@@ -1,8 +1,86 @@
 
 
+export const tweetsColumns = [
+  
+  {
+    field: "tweet_id",
+    headerName: "Tweet ID",
+    width: 180,
+    renderCell: (params) => {
+      return (
+        <div className="cellWithImg">
+          <img className="cellImg" src={params.row.Image} alt="avatar" />
+          {params.row.Username}
+        </div>
+      );
+    },
+  },
+  {
+    field: "author",
+    headerName: "Author",
+    width: 130,
+    renderCell: (params) => {
+      return (
+        <div className="cellWithImg">
+          {params.row.Email}
+        </div>
+      );
+    },
+  },
+  {
+    field: "comp_score",
+    headerName: "Comp Score",
+    width: 100,
+    renderCell: (params) => {
+      return (
+        <div className="cellWithImg">
+          {params.row.Email}
+        </div>
+      );
+    },
+  },
+  {
+    field: "engagement",
+    headerName: "Engagement",
+    width: 100,
+    renderCell: (params) => {
+      return (
+        <div className="cellWithImg">
+          {params.row.Email}
+        </div>
+      );
+    },
+  },
+  {
+    field: "tweet_text",
+    headerName: "Tweet Text",
+    width: 380,
+    renderCell: (params) => {
+      return (
+        <div className="cellWithImg">
+          {params.row.Email}
+        </div>
+      );
+    },
+  },
+  {
+    field: "tweet_time",
+    headerName: "Tweet Time",
+    width: 180,
+    renderCell: (params) => {
+      return (
+        <div className="cellWithImg">
+          {params.row.Email}
+        </div>
+      );
+    },
+  },
+  
+
+];
+
 export const userColumns = [
   
-  { field: "id", headerName: "ID", width: 70 },
   {
     field: "user",
     headerName: "User",
@@ -37,7 +115,7 @@ export const coinsColumns = [
   {
     field: "coin",
     headerName: "Coin",
-    width: 280,
+    width: 380,
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
@@ -50,7 +128,7 @@ export const coinsColumns = [
   {
     field: "info",
     headerName: "Info",
-    width: 280,
+    width: 380,
     renderCell: (params) => {
       return (
         <div className="cellWithImg">

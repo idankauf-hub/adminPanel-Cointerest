@@ -3,6 +3,8 @@ import "./CoinCard.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Chart from "../../components/chart/Chart";
 import { useParams, useLocation } from "react-router-dom";
+import { Timeline,Tweet } from "react-twitter-widgets";
+import TweetsTable from "../tweetsTable/TweetsTable"
 const CoinCard = (props) => {
   const [data, setData] = useState();
   let params = useParams();
@@ -40,7 +42,6 @@ const CoinCard = (props) => {
 
   return (
     <div className="single">
-
       <Sidebar />
       <div className="singleContainer">
         <div className="top">
@@ -59,7 +60,15 @@ const CoinCard = (props) => {
                     <h3 className="itemTitle">
                       ${data[0].Price_history[0].Coin_value}
                     </h3>
-                    <span className={`status ${data[0].Price_history[0].Percent_change_24h >= 0 ? "Positive" : "Negative"}`}>{data[0].Price_history[0].Percent_change_24h}</span>
+                    <span
+                      className={`status ${
+                        data[0].Price_history[0].Percent_change_24h >= 0
+                          ? "Positive"
+                          : "Negative"
+                      }`}
+                    >
+                      {data[0].Price_history[0].Percent_change_24h}
+                    </span>
                     <div className="detailItem">
                       <span className="itemKey">Coin info:</span>
                       <span className="itemValue">{data[0].Coin_info}</span>
@@ -70,11 +79,29 @@ const CoinCard = (props) => {
             </div>
           </div>
           <div className="right">
-            <Chart aspect={4 / 1} title="Coin data" coin={data && data[0].Coin_name}/>
+            <Chart
+              aspect={4 / 1}
+              title="Coin data"
+              coin={data && data[0].Coin_name}
+            />
           </div>
         </div>
         <div className="bottom">
           <h1 className="title">Last Transactions</h1>
+          {/* <Tweet tweetId="841418541026877441"   options={{
+              height: "400",
+            }}/>
+          <Timeline
+            dataSource={{
+              sourceType: "profile",
+              screenName: "nayibbukele",
+            }}
+            options={{
+              height: "400",
+              width:"900"
+            }}
+          /> */}
+          <TweetsTable/>
           {/* {<List/>} */}
         </div>
       </div>

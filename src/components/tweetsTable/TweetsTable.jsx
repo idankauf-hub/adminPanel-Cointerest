@@ -1,17 +1,13 @@
-import "./datatableCoins.scss";
+import "./tweetsTable.scss";
 import { DataGrid } from "@mui/x-data-grid";
-import { coinsColumns } from "../../datatablesource";
+import { tweetsColumns } from "../../datatablesource";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { userInputs } from "../../formSource";
 
 let coins;
-const DatatableCoins = (props) => {
+const TweetsTable = (props) => {
   const [data, setData] = useState();
-
-  const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
-  };
 
   const getCoins = () => {
     fetch("http://194.90.158.74/bgroup53/test2/tar4/api/Coins", {
@@ -63,14 +59,14 @@ const DatatableCoins = (props) => {
     getCoins();
   }, []);
 
-  return (
+  return ( <div><h1>loader</h1></div> &&
     <div className="datatableCoins">
 
       <DataGrid
         className="datagrid"
         rows={data}
-        columns={coinsColumns.concat(actionColumn)}
-        pageSize={9}
+        columns={tweetsColumns.concat(actionColumn)}
+        pageSize={5}
         getRowId={(row) => row.Coin_name}
         rowsPerPageOptions={[9]}
         checkboxSelection
@@ -79,4 +75,4 @@ const DatatableCoins = (props) => {
   );
 };
 
-export default DatatableCoins;
+export default TweetsTable;
