@@ -4,6 +4,7 @@ import { tweetsColumns } from "../../datatablesource";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { userInputs } from "../../formSource";
+import BasicModal from "../basicModal/BasicModal";
 
 let coins;
 const TweetsTable = (props) => {
@@ -43,12 +44,9 @@ const TweetsTable = (props) => {
       renderCell: (params) => {
         return (
           <div className="cellAction">
-            <Link
-              to={"/coins/"+params.row.Coin_name} 
-              style={{ textDecoration: "none" }}
-            >
-              <div className="viewButton">View</div>
-            </Link>
+            <div className="viewButton">
+            <BasicModal/>
+            </div>
           </div>
         );
       },
