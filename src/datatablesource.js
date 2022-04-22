@@ -3,74 +3,73 @@
 export const tweetsColumns = [
   
   {
-    field: "tweet_id",
+    field: "Tweet_id",
     headerName: "Tweet ID",
     width: 180,
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
-          <img className="cellImg" src={params.row.Image} alt="avatar" />
-          {params.row.Username}
+          {params.row.Tweet_id}
         </div>
       );
     },
   },
   {
-    field: "author",
+    field: "Author",
     headerName: "Author",
     width: 130,
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
-          {params.row.Email}
+          {params.row.Author}
         </div>
       );
     },
   },
   {
-    field: "comp_score",
+    field: "Comp_score",
     headerName: "Comp Score",
     width: 100,
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
-          {params.row.Email}
+          {params.row.Comp_score}
         </div>
       );
     },
   },
   {
-    field: "engagement",
+    field: "Engagement",
     headerName: "Engagement",
     width: 100,
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
-          {params.row.Email}
+          {params.row.Engagement}
         </div>
       );
     },
   },
   {
-    field: "tweet_text",
+    field: "Tweet_text",
     headerName: "Tweet Text",
-    width: 380,
+    width: 910,
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
-          {params.row.Email}
+          {params.row.Tweet_text}
         </div>
       );
     },
   },
   {
-    field: "tweet_time",
+    field: "Tweet_time",
     headerName: "Tweet Time",
     width: 180,
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
-          {params.row.Email}
+          {params.row.Tweet_time}
         </div>
       );
     },

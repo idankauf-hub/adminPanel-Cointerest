@@ -8,7 +8,6 @@ import TweetsTable from "../tweetsTable/TweetsTable"
 const CoinCard = (props) => {
   const [data, setData] = useState();
   let params = useParams();
-
   const getUser = () => {
     fetch("http://194.90.158.74/bgroup53/test2/tar4/api/Coins", {
       method: "GET",
@@ -27,7 +26,7 @@ const CoinCard = (props) => {
           let result1 = result.filter(
             (word) => word.Coin_name == params.coinId
           );
-          console.log(result1);
+          console.log(result1[0].Coin_name);
           setData(result1);
         },
         (error) => {
@@ -87,22 +86,10 @@ const CoinCard = (props) => {
           </div>
         </div>
         <div className="bottom">
-          <h1 className="title">Last Transactions</h1>
-          {/* <Tweet tweetId="841418541026877441"   options={{
-              height: "400",
-            }}/>
-          <Timeline
-            dataSource={{
-              sourceType: "profile",
-              screenName: "nayibbukele",
-            }}
-            options={{
-              height: "400",
-              width:"900"
-            }}
-          /> */}
-          <TweetsTable/>
+          <h1 className="title">{data && data[0].Coin_name === "Bitcoin" ?("Last Tweets"):("Last Transactions")}</h1>
+          {/* <TweetsTable/> */}
           {/* {<List/>} */}
+          {data && data[0].Coin_name === "Bitcoin" ?(<TweetsTable/>):(<h1>Transactions</h1>)}
         </div>
       </div>
     </div>

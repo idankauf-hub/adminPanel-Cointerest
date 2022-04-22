@@ -11,83 +11,41 @@ import {
 } from "recharts";
 import { useEffect, useState } from "react";
 
-const getHistory = (coin) => {
-  fetch(
-    `http://194.90.158.74/bgroup53/test2/tar4/api/Coins/?coin_name=${coin}&start=2022-01-01T00:00:00&finish=2022-04-04T00:00:00`,
 
-    {
-      method: "GET",
-      headers: new Headers({
-        "Content-Type": "application/json; charset=UTF-8",
-      }),
-    }
-  )
-    .then((res) => {
-      console.log("res=", res);
-      console.log("res.status", res.status);
-      console.log("res.ok", res.ok);
-      return res.json();
-    })
-    .then(
-      (result) => {
-        console.log(result[0]);
-      },
-      (error) => {
-        console.log("err post=", error);
-      }
-    );
-};
 
 const Chart = ({ aspect, title, coin }) => {
   const [data, setData] = useState();
-  // const [data, setData] = useState(
-  //   [    { name: "January", Total: 1200 },
-  // { name: "February", Total: 2100 },
-  // { name: "March", Total: 800 },
-  // { name: "April", Total: 1600 },
-  // { name: "May", Total: 900 },
-  // { name: "June", Total: 1700 }]
-  // );
+
+  const getHistory = (coin) => {
+    fetch(
+      `http://194.90.158.74/bgroup53/test2/tar4/api/Coins/?coin_name=${coin}&interval_type=C&start=2017-11-01T00:00:00&finish=2017-11-01T00:00:00`,
+  
+      {
+        method: "GET",
+        headers: new Headers({
+          "Content-Type": "application/json; charset=UTF-8",
+        }),
+      }
+    )
+      .then((res) => {
+        console.log("res=", res);
+        console.log("res.status", res.status);
+        console.log("res.ok", res.ok);
+        return res.json();
+      })
+      .then(
+        (result) => {
+          console.log(result);
+          setData(result);
+        },
+        (error) => {
+          console.log("err post=", error);
+        }
+      );
+  };
   useEffect(() => {
     getHistory(coin);
   }, []);
-  const data1 = [
-    {
-      name: "Page A",
-      uv: 4000,
-      pv: 2400,
-    },
-    {
-      name: "Page B",
-      uv: 3000,
-      pv: 1398,
-    },
-    {
-      name: "Page C",
-      uv: 2000,
-      pv: 9800,
-    },
-    {
-      name: "Page D",
-      uv: 2780,
-      pv: 3908,
-    },
-    {
-      name: "Page E",
-      uv: 1890,
-      pv: 4800,
-    },
-    {
-      name: "Page F",
-      uv: 2390,
-      pv: 3800,
-    },
-    {
-      name: "Page G",
-      uv: 3490,
-      pv: 4300,
-    },
-  ];
 
   return (
     <div className="chart">
@@ -96,7 +54,7 @@ const Chart = ({ aspect, title, coin }) => {
         <AreaChart
           width={730}
           height={250}
-          data={data1}
+          data={data}
           margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
         >
           <defs>
@@ -109,8 +67,10 @@ const Chart = ({ aspect, title, coin }) => {
               <stop offset="95%" stopColor="#82ca9d" stopOpacity={0} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="name" />
-          <YAxis />
+          <XAxis dataKey="Name" />
+          <YAxis yAxisId="Value" />
+          <YAxis yAxisId="Comp" orientation="right" />
+          
           <CartesianGrid strokeDasharray="3 3" />
           <Tooltip />
           <Legend verticalAlign="top" height={36} />
@@ -118,7 +78,8 @@ const Chart = ({ aspect, title, coin }) => {
           <Area
             name={coin}
             type="monotone"
-            dataKey="uv"
+            dataKey="Value"
+            yAxisId="Value"
             stroke="#8884d8"
             fillOpacity={1}
             fill="url(#colorUv)"
@@ -126,7 +87,8 @@ const Chart = ({ aspect, title, coin }) => {
           <Area
             name="Compound"
             type="monotone"
-            dataKey="pv"
+            dataKey="Comp"
+            yAxisId="Comp"
             stroke="#82ca9d"
             fillOpacity={1}
             fill="url(#colorPv)"

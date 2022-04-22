@@ -10,8 +10,8 @@ let coins;
 const TweetsTable = (props) => {
   const [data, setData] = useState();
 
-  const getCoins = () => {
-    fetch("http://194.90.158.74/bgroup53/test2/tar4/api/Coins", {
+  const getTweets = () => {
+    fetch("http://194.90.158.74/bgroup53/test2/tar4/api/Tweets", {
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json; charset=UTF-8",
@@ -25,10 +25,9 @@ const TweetsTable = (props) => {
       })
       .then(
         (result) => {
-          console.log("Coins res: " + JSON.stringify(result));
+          console.log(result);
           // coins=result
           setData(result);
-          console.log(coins);
         },
         (error) => {
           console.log("err post=", error);
@@ -45,7 +44,7 @@ const TweetsTable = (props) => {
         return (
           <div className="cellAction">
             <div className="viewButton">
-            <BasicModal/>
+              <BasicModal tweet={params.row.Tweet_id}/>
             </div>
           </div>
         );
@@ -54,22 +53,26 @@ const TweetsTable = (props) => {
   ];
 
   useEffect(() => {
-    getCoins();
+    getTweets();
   }, []);
 
-  return ( <div><h1>loader</h1></div> &&
-    <div className="datatableCoins">
-
-      <DataGrid
-        className="datagrid"
-        rows={data}
-        columns={tweetsColumns.concat(actionColumn)}
-        pageSize={5}
-        getRowId={(row) => row.Coin_name}
-        rowsPerPageOptions={[9]}
-        checkboxSelection
-      />
-    </div>
+  return (
+    (
+      <div>
+        <h1>loader</h1>
+      </div>
+    ) && (
+      <div className="tweetsTable">
+        <DataGrid
+          getRowId={(row) => row.Tweet_id}
+          className="datagrid"
+          rows={data}
+          columns={tweetsColumns.concat(actionColumn)}
+          pageSize={5}
+          rowsPerPageOptions={[9]}
+        />
+      </div>
+    )
   );
 };
 
