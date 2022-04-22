@@ -6,91 +6,71 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const List = () => {
-  const rows = [
-    {
-      id: 1143155,
-      product: "BITCOIN",
-      img: "http://194.90.158.74/bgroup53/test2/tar4/Assets/Bitcoin.png",
-      customer: "John Smith",
-      date: "1 March",
-      amount: 785,
-      method: "Cash on Delivery",
-      status: "Approved",
-    },
-    {
-      id: 1143155,
-      product: "BITCOIN",
-      img: "http://194.90.158.74/bgroup53/test2/tar4/Assets/Bitcoin.png",
-      customer: "John Smith",
-      date: "1 March",
-      amount: 785,
-      method: "Cash on Delivery",
-      status: "Approved",
-    },
-    {
-      id: 1143155,
-      product: "Ethereum",
-      img: "http://194.90.158.74/bgroup53/test2/tar4/Assets/Ethereum.png",
-      customer: "John Smith",
-      date: "1 March",
-      amount: 785,
-      method: "Cash on Delivery",
-      status: "Approved",
-    },
-    {
-      id: 1143155,
-      product: "BITCOIN",
-      img: "http://194.90.158.74/bgroup53/test2/tar4/Assets/Bitcoin.png",
-      customer: "John Smith",
-      date: "1 March",
-      amount: 785,
-      method: "Cash on Delivery",
-      status: "Approved",
-    },
-    {
-      id: 1143155,
-      product: "Ethereum",
-      img: "http://194.90.158.74/bgroup53/test2/tar4/Assets/Ethereum.png",
-      customer: "John Smith",
-      date: "1 March",
-      amount: 785,
-      method: "Cash on Delivery",
-      status: "Pending",
-    },
-  ];
+  const [data, setData] = useState();
+  let params = useParams();
+  console.log(params.userId);
+
+  const getAssets = () => {
+    fetch(
+      "http://194.90.158.74/bgroup53/test2/tar4/api/Assets/?email=" +
+        params.userId,
+      {
+        method: "GET",
+        headers: new Headers({
+          "Content-Type": "application/json; charset=UTF-8",
+        }),
+      }
+    )
+      .then((res) => {
+        console.log("res=", res);
+        console.log("res.status", res.status);
+        console.log("res.ok", res.ok);
+        return res.json();
+      })
+      .then(
+        (result) => {
+          console.log(result);
+          setData(result);
+        },
+        (error) => {
+          console.log("err post=", error);
+        }
+      );
+  };
+
+  useEffect(() => {
+    getAssets();
+  }, []);
+
   return (
     <TableContainer component={Paper} className="table">
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell className="tableCell">Tracking ID</TableCell>
-            <TableCell className="tableCell">Product</TableCell>
-            <TableCell className="tableCell">Customer</TableCell>
-            <TableCell className="tableCell">Date</TableCell>
+            <TableCell className="tableCell">Coin name</TableCell>
             <TableCell className="tableCell">Amount</TableCell>
-            <TableCell className="tableCell">Payment Method</TableCell>
-            <TableCell className="tableCell">Status</TableCell>
+            <TableCell className="tableCell">In USD</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.id}>
-              <TableCell className="tableCell">{row.id}</TableCell>
+          {data?.map((row) => (
+            <TableRow key={row.Coin_info.Coin_name}>
               <TableCell className="tableCell">
                 <div className="cellWrapper">
-                  <img src={row.img} alt="" className="image" />
-                  {row.product}
+                  <img src={row.Coin_info.Coin_picture} alt="" className="image" />
+                  {row.Coin_info.Coin_name}
                 </div>
               </TableCell>
-              <TableCell className="tableCell">{row.customer}</TableCell>
-              <TableCell className="tableCell">{row.date}</TableCell>
-              <TableCell className="tableCell">{row.amount}</TableCell>
-              <TableCell className="tableCell">{row.method}</TableCell>
               <TableCell className="tableCell">
-                <span className={`status ${row.status}`}>{row.status}</span>
+                {row.Amount}
               </TableCell>
+
+              <TableCell className="tableCell">{row.Asset_worth_in_USD}</TableCell>
+
             </TableRow>
           ))}
         </TableBody>

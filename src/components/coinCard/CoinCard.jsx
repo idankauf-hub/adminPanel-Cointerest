@@ -87,8 +87,6 @@ const CoinCard = (props) => {
         </div>
         <div className="bottom">
           <h1 className="title">{data && data[0].Coin_name === "Bitcoin" ?("Last Tweets"):("Last Transactions")}</h1>
-          {/* <TweetsTable/> */}
-          {/* {<List/>} */}
           {data && data[0].Coin_name === "Bitcoin" ?(<TweetsTable/>):(<h1>Transactions</h1>)}
         </div>
       </div>
