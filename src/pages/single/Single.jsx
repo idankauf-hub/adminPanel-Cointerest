@@ -108,11 +108,11 @@ const Single = (props) => {
         </div>
         <div className="bottom">
         <h1 className="title">Assets</h1>
-          <List/>
+          <List action="Assets"/>
         </div>
         <div className="bottom">
         <h1 className="title">Last Transactions</h1>
-          <List/>
+          <List action="Transactions"/>
         </div>
       </div>
     </div>

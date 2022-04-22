@@ -10,23 +10,24 @@ import {
   Legend,
 } from "recharts";
 import { useEffect, useState } from "react";
-
-
+import { useParams } from "react-router-dom";
 
 const Chart = ({ aspect, title, coin }) => {
   const [data, setData] = useState();
-
+  let params = useParams();
+  let apiUrl = "";
+  if (params.coinId === "Bitcoin") {
+    apiUrl = `http://194.90.158.74/bgroup53/test2/tar4/api/Coins/?coin_name=${params.coinId}&interval_type=C&start=2022-03-03T00:00:00&finish=2022-04-22T00:00:00`;
+  } else {
+    apiUrl = `http://194.90.158.74/bgroup53/test2/tar4/api/Coins/?coin_name=${params.coinId}&interval_type=D&start=2022-03-03T00:00:00&finish=2022-04-22T00:00:00`;
+  }
   const getHistory = (coin) => {
-    fetch(
-      `http://194.90.158.74/bgroup53/test2/tar4/api/Coins/?coin_name=${coin}&interval_type=C&start=2017-11-01T00:00:00&finish=2017-11-01T00:00:00`,
-  
-      {
-        method: "GET",
-        headers: new Headers({
-          "Content-Type": "application/json; charset=UTF-8",
-        }),
-      }
-    )
+    fetch(apiUrl, {
+      method: "GET",
+      headers: new Headers({
+        "Content-Type": "application/json; charset=UTF-8",
+      }),
+    })
       .then((res) => {
         console.log("res=", res);
         console.log("res.status", res.status);
@@ -70,7 +71,7 @@ const Chart = ({ aspect, title, coin }) => {
           <XAxis dataKey="Name" />
           <YAxis yAxisId="Value" />
           <YAxis yAxisId="Comp" orientation="right" />
-          
+
           <CartesianGrid strokeDasharray="3 3" />
           <Tooltip />
           <Legend verticalAlign="top" height={36} />
