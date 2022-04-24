@@ -66,6 +66,8 @@ export const tweetsColumns = [
     field: "Tweet_time",
     headerName: "Tweet Time",
     width: 180,
+    type: 'date',
+    
     renderCell: (params) => {
       return (
         <div className="cellWithImg">

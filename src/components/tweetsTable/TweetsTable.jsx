@@ -70,6 +70,7 @@ const TweetsTable = (props) => {
           columns={tweetsColumns.concat(actionColumn)}
           pageSize={5}
           rowsPerPageOptions={[9]}
+          isCellEditable={(params) => params.row.Tweet_time}
         />
       </div>
     )

@@ -83,7 +83,7 @@ const Chart = ({ aspect, title, coin }) => {
             </linearGradient>
           </defs>
           <XAxis dataKey="Name" />
-          <YAxis yAxisId="Value" />
+          <YAxis yAxisId="Value" orientation="left" domain={['auto', 'auto']}/>
           <YAxis yAxisId="Comp" orientation="right" />
 
           <CartesianGrid strokeDasharray="3 3" />
