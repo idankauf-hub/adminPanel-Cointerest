@@ -16,10 +16,24 @@ const Chart = ({ aspect, title, coin }) => {
   const [data, setData] = useState();
   let params = useParams();
   let apiUrl = "";
+
+  var today = new Date();
+  var Lastweek = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000);
+
+  var dd = String(today.getDate()).padStart(2, "0");
+  var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+  var yyyy = today.getFullYear();
+  today = yyyy+'-'+mm+'-'+dd
+
+  var ldd = String(Lastweek.getDate()).padStart(2, "0");
+  var lmm = String(Lastweek.getMonth() + 1).padStart(2, "0"); //January is 0!
+  var lyyyy = Lastweek.getFullYear();
+  Lastweek = lyyyy+'-'+lmm+'-'+ldd
+
   if (params.coinId === "Bitcoin") {
-    apiUrl = `http://194.90.158.74/bgroup53/test2/tar4/api/Coins/?coin_name=${params.coinId}&interval_type=C&start=2022-03-03T00:00:00&finish=2022-04-22T00:00:00`;
+    apiUrl = `http://194.90.158.74/bgroup53/test2/tar4/api/Coins/?coin_name=${params.coinId}&interval_type=C&start=${Lastweek}T00:00:00&finish=${today}T23:00:00`;
   } else {
-    apiUrl = `http://194.90.158.74/bgroup53/test2/tar4/api/Coins/?coin_name=${params.coinId}&interval_type=D&start=2022-03-03T00:00:00&finish=2022-04-22T00:00:00`;
+    apiUrl = `http://194.90.158.74/bgroup53/test2/tar4/api/Coins/?coin_name=${params.coinId}&interval_type=D&start=${Lastweek}T00:00:00&finish=${today}T23:00:00`;
   }
   const getHistory = (coin) => {
     fetch(apiUrl, {

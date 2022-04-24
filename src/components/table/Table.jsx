@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 const List = (props) => {
   const [asset, setAssets] = useState();
   const [transactions, setTransactions] = useState();
+  const [err, setErr] = useState(<div><h1>error</h1></div>);
 
   let params = useParams();
   console.log(params.userId);
@@ -40,14 +41,14 @@ const List = (props) => {
           setAssets(result);
         },
         (error) => {
-          console.log("err post=", error);
+          console.log(error);
         }
       );
   };
   const getTrans = () => {
+    console.log(params.userId)
     fetch(
-      "http://194.90.158.74/bgroup53/test2/tar4/api/Transactions/?email=" +
-        params.userId,
+      `http://194.90.158.74/bgroup53/test2/tar4/api/Transactions/?email=${params.userId}&n=1` ,
       {
         method: "GET",
         headers: new Headers({
@@ -59,6 +60,9 @@ const List = (props) => {
         console.log("res=", res);
         console.log("res.status", res.status);
         console.log("res.ok", res.ok);
+        if(res.status >= 400 && res.status<600){
+          setErr(res.status)
+        }
         return res.json();
       })
       .then(
@@ -67,7 +71,8 @@ const List = (props) => {
           setTransactions(result);
         },
         (error) => {
-          console.log("err post=", error);
+          console.log(error)
+          setErr(error)
         }
       );
   };
@@ -114,7 +119,7 @@ const List = (props) => {
     );
   };
   if(props.action == "Transactions"){
-    return (
+    return  err!== 400?(
       <TableContainer component={Paper} className="table">
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
@@ -156,7 +161,7 @@ const List = (props) => {
           </TableBody>
         </Table>
       </TableContainer>
-    );
+    ):(<div><h1>No Transactions</h1></div>)
   };
 
 };
