@@ -39,7 +39,7 @@ const TweetsTable = (props) => {
     {
       field: "action",
       headerName: "Action",
-      width: 200,
+      flex: 1,
       renderCell: (params) => {
         return (
           <div className="cellAction">
@@ -59,7 +59,7 @@ const TweetsTable = (props) => {
   return (
     (
       <div>
-        <h1>loader</h1>
+        <h1>loader...</h1>
       </div>
     ) && (
       <div className="tweetsTable">

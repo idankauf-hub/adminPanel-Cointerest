@@ -5,7 +5,7 @@ export const tweetsColumns = [
   {
     field: "Tweet_id",
     headerName: "Tweet ID",
-    width: 180,
+    flex: 1,
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
@@ -17,7 +17,7 @@ export const tweetsColumns = [
   {
     field: "Author",
     headerName: "Author",
-    width: 130,
+    flex: 1,
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
@@ -29,7 +29,7 @@ export const tweetsColumns = [
   {
     field: "Comp_score",
     headerName: "Comp Score",
-    width: 100,
+    flex: 1,
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
@@ -41,7 +41,7 @@ export const tweetsColumns = [
   {
     field: "Engagement",
     headerName: "Engagement",
-    width: 100,
+    flex: 1,
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
@@ -53,7 +53,7 @@ export const tweetsColumns = [
   {
     field: "Tweet_text",
     headerName: "Tweet Text",
-    width: 910,
+    flex: 1,
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
@@ -65,7 +65,7 @@ export const tweetsColumns = [
   {
     field: "Tweet_time",
     headerName: "Tweet Time",
-    width: 180,
+    flex: 1,
     type: 'date',
     
     renderCell: (params) => {

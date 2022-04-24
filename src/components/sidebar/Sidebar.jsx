@@ -49,7 +49,7 @@ const Sidebar = () => {
             </li>
           </Link>
           
-          <p className="title">USER</p>
+          {/* <p className="title">USER</p>
           <li>
             <AccountCircleOutlinedIcon className="icon" />
             <span>Profile</span>
@@ -57,7 +57,7 @@ const Sidebar = () => {
           <li>
             <ExitToAppIcon className="icon" />
             <span>Logout</span>
-          </li>
+          </li> */}
         </ul>
       </div>
       <div className="bottom">
