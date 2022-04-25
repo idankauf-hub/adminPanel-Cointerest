@@ -44,7 +44,7 @@ const TweetsTable = (props) => {
         return (
           <div className="cellAction">
             <div className="viewButton">
-              <BasicModal tweet={params.row.Tweet_id}/>
+              <BasicModal tweet={params.row.Tweet_id} />
             </div>
           </div>
         );
@@ -56,12 +56,8 @@ const TweetsTable = (props) => {
     getTweets();
   }, []);
 
-  return (
-    (
-      <div>
-        <h1>loader...</h1>
-      </div>
-    ) && (
+  if (data) {
+    return (
       <div className="tweetsTable">
         <DataGrid
           getRowId={(row) => row.Tweet_id}
@@ -73,8 +69,14 @@ const TweetsTable = (props) => {
           isCellEditable={(params) => params.row.Tweet_time}
         />
       </div>
-    )
-  );
+    );
+  } else {
+    return (
+      <div>
+        <h1>loading</h1>
+      </div>
+    );
+  }
 };
 
 export default TweetsTable;

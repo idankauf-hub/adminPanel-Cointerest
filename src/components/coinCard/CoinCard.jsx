@@ -99,7 +99,7 @@ const CoinCard = (props) => {
                           : "Negative"
                       }`}
                     >
-                      {data[0].Price_history[0].Percent_change_24h}
+                      {data[0].Price_history[0].Percent_change_24h + "%"}
                     </span>
                     <div className="detailItem">
                       <span className="itemKey">Coin info:</span>
