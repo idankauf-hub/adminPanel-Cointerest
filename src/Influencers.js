@@ -53,7 +53,7 @@ export const Influencers = [
       followers_count: 717457,
       verified: false,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/1453160291257229315/ALVR-JC8_normal.jpg",
+        "https://unavatar.io/twitter/ZssBecker",
     },
     {
       author_id: "1250830691824283648",
@@ -69,7 +69,7 @@ export const Influencers = [
       followers_count: 550656,
       verified: false,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/1480664590174208000/jZTmW1HF_normal.jpg",
+      "https://unavatar.io/twitter/WClementeIII",
     },
     {
       author_id: "127646057",
@@ -141,7 +141,7 @@ export const Influencers = [
       followers_count: 126234,
       verified: false,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/1381046024395890690/xVYSXJUb_normal.jpg",
+      "https://unavatar.io/twitter/econoar",
     },
     {
       author_id: "1416070452372459523",
@@ -149,7 +149,7 @@ export const Influencers = [
       followers_count: 186365,
       verified: false,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/1474177240132997126/LrSgPqzj_normal.jpg",
+      "https://unavatar.io/twitter/RaritySniperNFT",
     },
     {
       author_id: "14527699",
@@ -157,7 +157,7 @@ export const Influencers = [
       followers_count: 130637,
       verified: false,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/1478049037437878272/nyeOn1kn_normal.jpg",
+      "https://unavatar.io/twitter/udiWertheimer",
     },
     {
       author_id: "14571055",
@@ -165,7 +165,7 @@ export const Influencers = [
       followers_count: 157942,
       verified: false,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/1454251569336180738/ctogcpLH_normal.jpg",
+      "https://unavatar.io/twitter/RyanSAdams",
     },
     {
       author_id: "146008010",
@@ -197,7 +197,7 @@ export const Influencers = [
       followers_count: 103310,
       verified: false,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/1479988823547432965/Y_MLfobE_normal.jpg",
+      "https://unavatar.io/twitter/jebus911",
     },
     {
       author_id: "16461706",
@@ -221,7 +221,7 @@ export const Influencers = [
       followers_count: 71357,
       verified: false,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/1385654614213619714/rGyWHD3y_normal.jpg",
+      "https://unavatar.io/twitter/evan_van_ness",
     },
     {
       author_id: "20736511",
@@ -229,7 +229,7 @@ export const Influencers = [
       followers_count: 3331467,
       verified: true,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/1462280128193572865/FmO8HZue_normal.jpg",
+      "https://unavatar.io/twitter/nayibbukele",
     },
     {
       author_id: "213236426",
@@ -253,7 +253,7 @@ export const Influencers = [
       followers_count: 4515032,
       verified: true,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/1475337078544248835/JRWM0Hsl_normal.jpg",
+      "https://unavatar.io/twitter/CoinMarketCap",
     },
     {
       author_id: "227755413",
@@ -269,7 +269,7 @@ export const Influencers = [
       followers_count: 407945,
       verified: false,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/1461204407597547527/ws3PnDVk_normal.jpg",
+      "https://unavatar.io/twitter/CryptoWhale",
     },
     {
       author_id: "23618940",
@@ -285,7 +285,7 @@ export const Influencers = [
       followers_count: 2100619,
       verified: true,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/1475100633732718596/-jUZGKqB_normal.jpg",
+      "https://unavatar.io/twitter/saylor",
     },
     {
       author_id: "24671050",
@@ -309,7 +309,7 @@ export const Influencers = [
       followers_count: 361413,
       verified: false,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/1481738528056922125/W008hDNr_normal.jpg",
+      "https://unavatar.io/twitter/RookieXBT",
     },
     {
       author_id: "2593497397",
@@ -317,7 +317,7 @@ export const Influencers = [
       followers_count: 161808,
       verified: false,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/1480925379435106305/JuypAU9u_normal.jpg",
+      "https://unavatar.io/twitter/LilMoonLambo",
     },
     {
       author_id: "30325257",
@@ -325,7 +325,7 @@ export const Influencers = [
       followers_count: 832145,
       verified: true,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/1446242938824978432/QE5wRdlf_normal.png",
+      "https://unavatar.io/twitter/TheCryptoLark",
     },
     {
       author_id: "30699048",
@@ -333,7 +333,7 @@ export const Influencers = [
       followers_count: 1009157,
       verified: true,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/1482000375750139904/rEq41_fH_normal.jpg",
+      "https://unavatar.io/twitter/BillyM2k",
     },
     {
       author_id: "313724502",
@@ -341,7 +341,7 @@ export const Influencers = [
       followers_count: 170699,
       verified: false,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/1446832486311350281/brXXjKRU_normal.jpg",
+      "https://unavatar.io/twitter/sassal0x",
     },
     {
       author_id: "3185716686",
@@ -381,7 +381,7 @@ export const Influencers = [
       followers_count: 163504,
       verified: false,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/1446914192825454592/cGOslAWZ_normal.jpg",
+      "https://unavatar.io/twitter/Tetranode",
     },
     {
       author_id: "40742821",
@@ -397,7 +397,7 @@ export const Influencers = [
       followers_count: 340019,
       verified: false,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/1204232602909134848/EmD7f-mI_normal.jpg",
+      "https://unavatar.io/twitter/TechDev_52",
     },
     {
       author_id: "4441279246",
@@ -413,7 +413,7 @@ export const Influencers = [
       followers_count: 183390,
       verified: false,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/1476984961420906497/kO3GShZF_normal.jpg",
+      "https://unavatar.io/twitter/LayahHeilpern",
     },
     {
       author_id: "538399586",
@@ -453,7 +453,7 @@ export const Influencers = [
       followers_count: 207260,
       verified: false,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/1075178951910326272/NKJ0Dl09_normal.jpg",
+      "https://unavatar.io/twitter/MartiniGuyYT",
     },
     {
       author_id: "79714172",
@@ -501,7 +501,7 @@ export const Influencers = [
       followers_count: 723309,
       verified: true,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/1477904020471947264/5v6oCX5V_normal.png",
+      "https://unavatar.io/twitter/OKEx",
     },
     {
       author_id: "887748030304329728",
@@ -573,7 +573,7 @@ export const Influencers = [
       followers_count: 90161,
       verified: true,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/1480268724892581889/80RTggcm_normal.jpg",
+      "https://unavatar.io/twitter/NathanCRoth",
     },
     {
       author_id: "928759224599040001",
@@ -581,7 +581,7 @@ export const Influencers = [
       followers_count: 799843,
       verified: true,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/960601839300501506/wNCEyDTJ_normal.jpg",
+      "https://unavatar.io/twitter/crypto",
     },
     {
       author_id: "9321342",
@@ -589,7 +589,7 @@ export const Influencers = [
       followers_count: 107379,
       verified: true,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/1430598178609500163/Ym-RO59V_normal.jpg",
+      "https://unavatar.io/twitter/santisiri",
     },
     {
       author_id: "938606626017370112",
@@ -597,7 +597,7 @@ export const Influencers = [
       followers_count: 178151,
       verified: false,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/1470937057505599494/HgFGZhvD_normal.png",
+      "https://unavatar.io/twitter/MoonOverlord",
     },
     {
       author_id: "943506806931734528",
@@ -613,7 +613,7 @@ export const Influencers = [
       followers_count: 776991,
       verified: true,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/1475860224795942916/5HyPpZ_K_normal.jpg",
+      "https://unavatar.io/twitter/Bitboy_Crypto",
     },
     {
       author_id: "956670268596015105",
@@ -621,7 +621,7 @@ export const Influencers = [
       followers_count: 170093,
       verified: false,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/1478352466760585216/2F-PlHFC_normal.jpg",
+      "https://unavatar.io/twitter/iamDCinvestor",
     },
     {
       author_id: "963767159536209921",
@@ -645,7 +645,7 @@ export const Influencers = [
       followers_count: 946571,
       verified: true,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/1467435481029824514/4sP1OPB-_normal.jpg",
+      "https://unavatar.io/twitter/TheMoonCarl",
     },
     {
       author_id: "981208355115974656",
@@ -653,7 +653,7 @@ export const Influencers = [
       followers_count: 123492,
       verified: false,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/1478483206001217536/ApyqBUTl_normal.jpg",
+      "https://unavatar.io/twitter/TrustlessState",
     },
     {
       author_id: "989912836901089282",

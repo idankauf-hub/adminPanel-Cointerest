@@ -1,4 +1,73 @@
 
+import VerifiedIcon from '@mui/icons-material/Verified';
+
+export const influncersColumns = [
+  {
+    field: "username",
+    headerName: "UserName",
+    flex: 1,
+    renderCell: (params) => {
+      return (
+        <div className="cellWithImg">
+        <img className="cellImg" src={params.row.profile_image_url} alt="avatar" />
+        {params.row.username}
+      </div>
+
+      );
+    },
+  },
+  {
+    field: "author_id",
+    headerName: "Author ID",
+    flex: 1,
+    renderCell: (params) => {
+      return (
+        <div className="cellWithImg">
+          {params.row.author_id}
+        </div>
+      );
+    },
+  },
+  
+  {
+    field: "followers_count",
+    headerName: "Followers",
+    flex: 1,
+    renderCell: (params) => {
+      return (
+        <div className="cellWithImg">
+          {params.row.followers_count}
+        </div>
+      );
+    },
+  },
+  {
+    field: "verified",
+    headerName: "Verified",
+    flex: 1,
+    renderCell: (params) => {
+      if(params.row.verified){
+        return (
+          <div className="cellWithImg">
+           <VerifiedIcon color='secondary'/>
+          </div>
+        );
+      }
+      else{
+        return (
+          <div className="cellWithImg" >
+          </div>
+        )
+      }
+            
+      
+   
+    },
+  },
+  
+];
+
+
 
 export const tweetsColumns = [
   
