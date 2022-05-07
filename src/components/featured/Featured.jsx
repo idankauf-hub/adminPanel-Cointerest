@@ -105,7 +105,7 @@ const Featured = () => {
           <CircularProgressbar value={win} text={Math.floor(win)} strokeWidth={5} />
         </div>
         <p className="title">Mean Absolute Error </p>
-        <p className="amount">${marginError}</p>
+        <p className="amount">${Math.floor(marginError)}</p>
         <p className="title">Last Week Results </p>
 
         <div className="summary">

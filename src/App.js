@@ -9,7 +9,6 @@ import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import CoinCard from "./components/coinCard/CoinCard";
-
 function App(props) {
   const { darkMode } = useContext(DarkModeContext);
   return (
@@ -20,7 +19,7 @@ function App(props) {
             <Route index element={<Home />} />
             <Route path="users">
               <Route index element={<List action="users" />} />
-              <Route path=":userId" element={<Single/>} />
+              <Route path=":userId" element={<Single />} />
               <Route
                 path="new"
                 element={<New inputs={userInputs} title="Add New User" />}
