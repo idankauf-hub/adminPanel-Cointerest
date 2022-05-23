@@ -6,6 +6,7 @@ import { useParams, useLocation } from "react-router-dom";
 import { Timeline, Tweet } from "react-twitter-widgets";
 import { Influencers } from "../../Influencers";
 import VerifiedIcon from "@mui/icons-material/Verified";
+import TweetsTable from "../tweetsTable/TweetsTable";
 
 const InfluencerCard = (props) => {
   const [data, setData] = useState(Influencers);
@@ -34,7 +35,7 @@ const InfluencerCard = (props) => {
             <h1 className="title">Information</h1>
             <div className="item">
               <img
-                src={"https://unavatar.io/twitter/"+data[0].username}
+                src={"https://unavatar.io/twitter/" + data[0].username}
                 alt=""
                 className="itemImg"
               />
@@ -70,7 +71,7 @@ const InfluencerCard = (props) => {
         </div>
         <div className="bottom">
           <h1 className="title">Tweets</h1>
-          <Timeline
+          {/* <Timeline
             dataSource={{
               sourceType: "profile",
               screenName: params.influncerId,
@@ -78,7 +79,8 @@ const InfluencerCard = (props) => {
             options={{
               height: "800",
             }}
-          />
+          /> */}
+          {<TweetsTable influncer={params}/>}
         </div>
       </div>
     </div>

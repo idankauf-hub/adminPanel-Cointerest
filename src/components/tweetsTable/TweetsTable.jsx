@@ -8,6 +8,7 @@ import BasicModal from "../basicModal/BasicModal";
 
 let coins;
 const TweetsTable = (props) => {
+  //console.log(props.influncer.influncerId)
   const [data, setData] = useState();
 
   const getTweets = () => {
@@ -25,9 +26,15 @@ const TweetsTable = (props) => {
       })
       .then(
         (result) => {
-          console.log(result);
-          // coins=result
-          setData(result);
+          if (props?.influncer?.influncerId) {
+            console.log(props.influncer.influncerId);
+            let r = result.filter(
+              (word) => word.Author === props.influncer.influncerId
+            );
+            setData(r);
+          } else {
+            setData(result);
+          }
         },
         (error) => {
           console.log("err post=", error);

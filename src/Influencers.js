@@ -1,13 +1,5 @@
 export const Influencers = [
     {
-      author_id: "1035721495",
-      username: "ChainLinkGod",
-      followers_count: 130919,
-      verified: false,
-      profile_image_url:
-        "http://pbs.twimg.com/profile_images/1479635387681153026/FHLmj92G_normal.jpg",
-    },
-    {
       author_id: "1039833297751302144",
       username: "whale_alert",
       followers_count: 2030030,
