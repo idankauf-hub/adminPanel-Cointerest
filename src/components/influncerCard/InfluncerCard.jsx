@@ -50,7 +50,7 @@ const InfluencerCard = (props) => {
                       )}
                     </h1>
                     <h3 className="itemTitle">
-                      <span>Following: </span>
+                      <span>Followers: </span>
                       {data[0].followers_count}
                     </h3>
                   </div>

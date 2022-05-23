@@ -47,11 +47,10 @@ const Chart = ({ aspect, title, coin }) => {
   const [endDate, setEndDate] = useState(today);
 
   let params = useParams();
+  console.log(params.influncerId);
   let apiUrl = "";
 
   const getHistory = () => {
-    console.log(startDate);
-    console.log(endDate);
     if (params.coinId === "Bitcoin") {
       apiUrl = `http://194.90.158.74/bgroup53/test2/tar4/api/Coins/?coin_name=${params.coinId}&interval_type=C&start=${startDate}T00:00:00&finish=${endDate}T23:00:00`;
     } else {
@@ -134,13 +133,30 @@ const Chart = ({ aspect, title, coin }) => {
           />
         </AreaChart>
       </ResponsiveContainer>
-      <div className="buttons">
-        <Button variant="contained" onClick={() => [setStartDate(Lastweek), setEndDate(today)]}>
-          7D
-        </Button>
-        <Button variant="contained" onClick={() => [setStartDate(LastMonth), setEndDate(today)]}>30D</Button>
-        <Button variant="contained" onClick={() => [setStartDate(Last2Month), setEndDate(today)]}>60D</Button>
-      </div>
+      {!params.influncerId ? (
+        <div className="buttons">
+          <Button
+            variant="contained"
+            onClick={() => [setStartDate(Lastweek), setEndDate(today)]}
+          >
+            7D
+          </Button>
+          <Button
+            variant="contained"
+            onClick={() => [setStartDate(LastMonth), setEndDate(today)]}
+          >
+            30D
+          </Button>
+          <Button
+            variant="contained"
+            onClick={() => [setStartDate(Last2Month), setEndDate(today)]}
+          >
+            60D
+          </Button>
+        </div>
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 };
