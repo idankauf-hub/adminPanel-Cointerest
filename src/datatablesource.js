@@ -1,11 +1,80 @@
 
+import VerifiedIcon from '@mui/icons-material/Verified';
+
+export const influncersColumns = [
+  {
+    field: "username",
+    headerName: "UserName",
+    flex: 1,
+    renderCell: (params) => {
+      return (
+        <div className="cellWithImg">
+        <img className="cellImg" src={params.row.profile_image_url} alt="avatar" />
+        {params.row.username}
+      </div>
+
+      );
+    },
+  },
+  {
+    field: "author_id",
+    headerName: "Author ID",
+    flex: 1,
+    renderCell: (params) => {
+      return (
+        <div className="cellWithImg">
+          {params.row.author_id}
+        </div>
+      );
+    },
+  },
+  
+  {
+    field: "followers_count",
+    headerName: "Followers",
+    flex: 1,
+    renderCell: (params) => {
+      return (
+        <div className="cellWithImg">
+          {params.row.followers_count}
+        </div>
+      );
+    },
+  },
+  {
+    field: "verified",
+    headerName: "Verified",
+    flex: 1,
+    renderCell: (params) => {
+      if(params.row.verified){
+        return (
+          <div className="cellWithImg">
+           <VerifiedIcon color='secondary'/>
+          </div>
+        );
+      }
+      else{
+        return (
+          <div className="cellWithImg" >
+          </div>
+        )
+      }
+            
+      
+   
+    },
+  },
+  
+];
+
+
 
 export const tweetsColumns = [
   
   {
     field: "Tweet_id",
     headerName: "Tweet ID",
-    width: 180,
+    flex: 1,
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
@@ -17,7 +86,7 @@ export const tweetsColumns = [
   {
     field: "Author",
     headerName: "Author",
-    width: 130,
+    flex: 1,
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
@@ -29,7 +98,7 @@ export const tweetsColumns = [
   {
     field: "Comp_score",
     headerName: "Comp Score",
-    width: 100,
+    flex: 1,
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
@@ -41,7 +110,7 @@ export const tweetsColumns = [
   {
     field: "Engagement",
     headerName: "Engagement",
-    width: 100,
+    flex: 1,
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
@@ -53,7 +122,7 @@ export const tweetsColumns = [
   {
     field: "Tweet_text",
     headerName: "Tweet Text",
-    width: 910,
+    flex: 1,
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
@@ -65,7 +134,9 @@ export const tweetsColumns = [
   {
     field: "Tweet_time",
     headerName: "Tweet Time",
-    width: 180,
+    flex: 1,
+    type: 'date',
+    
     renderCell: (params) => {
       return (
         <div className="cellWithImg">

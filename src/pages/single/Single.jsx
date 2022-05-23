@@ -7,6 +7,8 @@ import List from "../../components/table/Table";
 import {useParams} from "react-router-dom"
 const Single = (props) => {
   const [data, setData] = useState();
+  const [balance, setBalance] = useState();
+
   let params=useParams();
   console.log(params.userId)
   const getUser=()=>{
@@ -32,9 +34,34 @@ const Single = (props) => {
         }
       );
   };
+  
+  const getBalance=()=>{
+    fetch(`http://194.90.158.74/bgroup53/test2/tar4/api/Assets/?email=${params.userId}&n=1`, {
+      method: "GET",
+      headers: new Headers({
+        "Content-Type": "application/json; charset=UTF-8",
+      }),
+    })
+      .then((res) => {
+        console.log("res=", res);
+        console.log("res.status", res.status);
+        console.log("res.ok", res.ok);
+        return res.json();
+      })
+      .then(
+        (result) => {
+          console.log(result);
+          setBalance(result)  
+        },
+        (error) => {
+          console.log("err post=", error);
+        }
+      );
+  };
 
   useEffect(() => {
     getUser()
+    getBalance()
   },[])
 
   return (
@@ -63,6 +90,12 @@ const Single = (props) => {
                   {data.Bio}
                   </span>
                 </div>
+                <div className="detailItem">
+                  <span className="itemKey">Balance:</span>
+                  <span className="itemValue">
+                  {"$"+balance}
+                  </span>
+                </div>
 
               </div>
                 }
@@ -70,12 +103,16 @@ const Single = (props) => {
             </div>
           </div>
           <div className="right">
-            <Chart aspect={3 / 1} title="User Activity (Last 6 Months)" />
+            {/* <Chart aspect={3 / 1} title="User Activity (Last 6 Months)" /> */}
           </div>
         </div>
         <div className="bottom">
+        <h1 className="title">Assets</h1>
+          <List action="Assets"/>
+        </div>
+        <div className="bottom">
         <h1 className="title">Last Transactions</h1>
-          {/* <List/> */}
+          <List action="Transactions"/>
         </div>
       </div>
     </div>

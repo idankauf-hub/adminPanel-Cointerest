@@ -10,23 +10,58 @@ import {
   Legend,
 } from "recharts";
 import { useEffect, useState } from "react";
-
-
+import { useParams } from "react-router-dom";
+import { Button } from "@mui/material";
 
 const Chart = ({ aspect, title, coin }) => {
-  const [data, setData] = useState();
+  var today = new Date();
+  var Lastweek = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000);
+  var LastMonth = new Date(today.setMonth(today.getMonth() - 1));
+  var today = new Date();
 
-  const getHistory = (coin) => {
-    fetch(
-      `http://194.90.158.74/bgroup53/test2/tar4/api/Coins/?coin_name=${coin}&interval_type=C&start=2017-11-01T00:00:00&finish=2017-11-01T00:00:00`,
-  
-      {
-        method: "GET",
-        headers: new Headers({
-          "Content-Type": "application/json; charset=UTF-8",
-        }),
-      }
-    )
+  var Last2Month = new Date(today.setMonth(today.getMonth() - 2));
+  today = new Date();
+
+  var edd = String(Last2Month.getDate()).padStart(2, "0");
+  var emm = String(Last2Month.getMonth() + 1).padStart(2, "0"); //January is 0!
+  var eyyyy = Last2Month.getFullYear();
+  Last2Month = eyyyy + "-" + emm + "-" + edd;
+
+  var wdd = String(LastMonth.getDate()).padStart(2, "0");
+  var wmm = String(LastMonth.getMonth() + 1).padStart(2, "0"); //January is 0!
+  var wyyyy = LastMonth.getFullYear();
+  LastMonth = wyyyy + "-" + wmm + "-" + wdd;
+
+  var dd = String(today.getDate()).padStart(2, "0");
+  var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+  var yyyy = today.getFullYear();
+  today = yyyy + "-" + mm + "-" + dd;
+
+  var ldd = String(Lastweek.getDate()).padStart(2, "0");
+  var lmm = String(Lastweek.getMonth() + 1).padStart(2, "0"); //January is 0!
+  var lyyyy = Lastweek.getFullYear();
+  Lastweek = lyyyy + "-" + lmm + "-" + ldd;
+
+  const [data, setData] = useState();
+  const [startDate, setStartDate] = useState(Lastweek);
+  const [endDate, setEndDate] = useState(today);
+
+  let params = useParams();
+  console.log(params.influncerId);
+  let apiUrl = "";
+
+  const getHistory = () => {
+    if (params.coinId === "Bitcoin") {
+      apiUrl = `http://194.90.158.74/bgroup53/test2/tar4/api/Coins/?coin_name=${params.coinId}&interval_type=C&start=${startDate}T00:00:00&finish=${endDate}T23:00:00`;
+    } else {
+      apiUrl = `http://194.90.158.74/bgroup53/test2/tar4/api/Coins/?coin_name=${params.coinId}&interval_type=D&start=${startDate}T00:00:00&finish=${endDate}T23:00:00`;
+    }
+    fetch(apiUrl, {
+      method: "GET",
+      headers: new Headers({
+        "Content-Type": "application/json; charset=UTF-8",
+      }),
+    })
       .then((res) => {
         console.log("res=", res);
         console.log("res.status", res.status);
@@ -44,8 +79,11 @@ const Chart = ({ aspect, title, coin }) => {
       );
   };
   useEffect(() => {
-    getHistory(coin);
+    getHistory();
   }, []);
+  useEffect(() => {
+    getHistory();
+  }, [startDate, endDate]);
 
   return (
     <div className="chart">
@@ -68,9 +106,9 @@ const Chart = ({ aspect, title, coin }) => {
             </linearGradient>
           </defs>
           <XAxis dataKey="Name" />
-          <YAxis yAxisId="Value" />
+          <YAxis yAxisId="Value" orientation="left" domain={["auto", "auto"]} />
           <YAxis yAxisId="Comp" orientation="right" />
-          
+
           <CartesianGrid strokeDasharray="3 3" />
           <Tooltip />
           <Legend verticalAlign="top" height={36} />
@@ -95,6 +133,30 @@ const Chart = ({ aspect, title, coin }) => {
           />
         </AreaChart>
       </ResponsiveContainer>
+      {!params.influncerId ? (
+        <div className="buttons">
+          <Button
+            variant="contained"
+            onClick={() => [setStartDate(Lastweek), setEndDate(today)]}
+          >
+            7D
+          </Button>
+          <Button
+            variant="contained"
+            onClick={() => [setStartDate(LastMonth), setEndDate(today)]}
+          >
+            30D
+          </Button>
+          <Button
+            variant="contained"
+            onClick={() => [setStartDate(Last2Month), setEndDate(today)]}
+          >
+            60D
+          </Button>
+        </div>
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 };

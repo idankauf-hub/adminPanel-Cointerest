@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./CoinCard.scss";
-import Sidebar from "../../components/sidebar/Sidebar";
-import Chart from "../../components/chart/Chart";
+import Sidebar from "../sidebar/Sidebar";
+import Chart from "../chart/Chart";
 import { useParams, useLocation } from "react-router-dom";
 import { Timeline, Tweet } from "react-twitter-widgets";
 import TweetsTable from "../tweetsTable/TweetsTable";

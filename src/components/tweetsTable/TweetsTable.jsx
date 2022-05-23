@@ -8,6 +8,7 @@ import BasicModal from "../basicModal/BasicModal";
 
 let coins;
 const TweetsTable = (props) => {
+  //console.log(props.influncer.influncerId)
   const [data, setData] = useState();
 
   const getTweets = () => {
@@ -25,9 +26,15 @@ const TweetsTable = (props) => {
       })
       .then(
         (result) => {
-          console.log(result);
-          // coins=result
-          setData(result);
+          if (props?.influncer?.influncerId) {
+            console.log(props.influncer.influncerId);
+            let r = result.filter(
+              (word) => word.Author === props.influncer.influncerId
+            );
+            setData(r);
+          } else {
+            setData(result);
+          }
         },
         (error) => {
           console.log("err post=", error);
@@ -39,12 +46,12 @@ const TweetsTable = (props) => {
     {
       field: "action",
       headerName: "Action",
-      width: 200,
+      flex: 1,
       renderCell: (params) => {
         return (
           <div className="cellAction">
             <div className="viewButton">
-              <BasicModal tweet={params.row.Tweet_id}/>
+              <BasicModal tweet={params.row.Tweet_id} />
             </div>
           </div>
         );
@@ -56,12 +63,8 @@ const TweetsTable = (props) => {
     getTweets();
   }, []);
 
-  return (
-    (
-      <div>
-        <h1>loader</h1>
-      </div>
-    ) && (
+  if (data) {
+    return (
       <div className="tweetsTable">
         <DataGrid
           getRowId={(row) => row.Tweet_id}
@@ -70,10 +73,17 @@ const TweetsTable = (props) => {
           columns={tweetsColumns.concat(actionColumn)}
           pageSize={5}
           rowsPerPageOptions={[9]}
+          isCellEditable={(params) => params.row.Tweet_time}
         />
       </div>
-    )
-  );
+    );
+  } else {
+    return (
+      <div>
+        <h1>loading</h1>
+      </div>
+    );
+  }
 };
 
 export default TweetsTable;
