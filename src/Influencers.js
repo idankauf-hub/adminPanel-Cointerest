@@ -13,7 +13,7 @@ export const Influencers = [
       followers_count: 164251,
       verified: false,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/1355887280385351680/g6Uuwc8d_normal.jpg",
+        "https://unavatar.io/twitter/JohnEDeaton1",
     },
     {
       author_id: "1100373132135804928",
@@ -93,15 +93,15 @@ export const Influencers = [
       followers_count: 324248,
       verified: false,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/1476935642823147520/umKdWtpw_normal.jpg",
+        "https://unavatar.io/twitter/AltcoinGordon",
     },
     {
       author_id: "1369525201864687617",
       username: "nebraskangooner",
-      followers_count: 260,
+      followers_count: 268168,
       verified: false,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/1476423929141075969/pZo9mh6o_normal.jpg",
+        "https://unavatar.io/twitter/nebraskangooner",
     },
     {
       author_id: "1387497871751196672",
@@ -357,7 +357,7 @@ export const Influencers = [
       followers_count: 1446569,
       verified: true,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/1362803074121760768/IxlsR42x_normal.jpg",
+        "https://unavatar.io/twitter/APompliano",
     },
     {
       author_id: "361289499",
@@ -453,7 +453,7 @@ export const Influencers = [
       followers_count: 458530,
       verified: false,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/1472575344930525186/--oN20J5_normal.jpg",
+        "https://unavatar.io/twitter/zhusu",
     },
     {
       author_id: "80722677",
@@ -477,7 +477,7 @@ export const Influencers = [
       followers_count: 335580,
       verified: true,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/1366094142405812234/LCWXc4QQ_normal.jpg",
+        "https://unavatar.io/twitter/LynAldenContact",
     },
     {
       author_id: "863527548",
@@ -509,7 +509,7 @@ export const Influencers = [
       followers_count: 448882,
       verified: true,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/1455700533851955200/H9qohzf9_normal.jpg",
+        "https://unavatar.io/twitter/PeterMcCormack",
     },
     {
       author_id: "897446848004227072",
@@ -533,7 +533,7 @@ export const Influencers = [
       followers_count: 647211,
       verified: false,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/1478624439650566144/mJM6j0_Y_normal.jpg",
+        "https://unavatar.io/twitter/gate_io",
     },
     {
       author_id: "9130922",
@@ -621,7 +621,7 @@ export const Influencers = [
       followers_count: 213169,
       verified: true,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/1324131657574715394/xh7h15Ei_normal.jpg",
+        "https://unavatar.io/twitter/TheBlock__",
     },
     {
       author_id: "970994516357472257",
@@ -629,7 +629,7 @@ export const Influencers = [
       followers_count: 795546,
       verified: false,
       profile_image_url:
-        "http://pbs.twimg.com/profile_images/1362740544741466128/yJ99sdb4_normal.jpg",
+        "https://unavatar.io/twitter/BTC_Archive",
     },
     {
       author_id: "978732571738755072",

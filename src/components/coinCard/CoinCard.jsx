@@ -89,7 +89,7 @@ const CoinCard = (props) => {
                 {data && (
                   <div className="details">
                     <h1 className="itemTitle">{data[0].Coin_name}</h1>
-                    <h3 className="itemTitle">
+                    <h3 className="itemValue">
                       ${data[0].Price_history[0].Coin_value}
                     </h3>
                     <span
@@ -99,7 +99,7 @@ const CoinCard = (props) => {
                           : "Negative"
                       }`}
                     >
-                      {data[0].Price_history[0].Percent_change_24h + "%"}
+                      {data[0].Price_history[0].Percent_change_24h.toFixed(1) + "%"}
                     </span>
                     <div className="detailItem">
                       <span className="itemKey">Coin info:</span>
@@ -118,13 +118,14 @@ const CoinCard = (props) => {
                         >
                           {pred - data[0].Price_history[0].Coin_value >= 0
                             ? (
-                                pred / data[0].Price_history[0].Coin_value -
+                                pred*100 / data[0].Price_history[0].Coin_value -
                                 1
-                              ).toFixed(3)
+                              ).toFixed(1)
                             : (
                                 1 -
-                                pred / data[0].Price_history[0].Coin_value
-                              ).toFixed(3)}
+                                pred*100 / data[0].Price_history[0].Coin_value
+                              ).toFixed(1)
+                              }
                           %
                         </span>
                       </div>
