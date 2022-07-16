@@ -19,9 +19,6 @@ const Single = (props) => {
       }),
     })
       .then((res) => {
-        console.log("res=", res);
-        console.log("res.status", res.status);
-        console.log("res.ok", res.ok);
         return res.json();
       })
       .then(
@@ -43,15 +40,11 @@ const Single = (props) => {
       }),
     })
       .then((res) => {
-        console.log("res=", res);
-        console.log("res.status", res.status);
-        console.log("res.ok", res.ok);
         return res.json();
       })
       .then(
         (result) => {
-          console.log(result);
-          setBalance(result)  
+          setBalance(result.Net_worth)  
         },
         (error) => {
           console.log("err post=", error);
@@ -87,13 +80,14 @@ const Single = (props) => {
                 <div className="detailItem">
                   <span className="itemKey">Bio:</span>
                   <span className="itemValue">
-                  {data.Bio}
+                  {/* {data.Bio} */}
+                  {(data.Bio === "") ? "New User" : data.Bio}
                   </span>
                 </div>
                 <div className="detailItem">
                   <span className="itemKey">Balance:</span>
                   <span className="itemValue">
-                  {"$"+balance}
+                  {balance+"$"}
                   </span>
                 </div>
 
