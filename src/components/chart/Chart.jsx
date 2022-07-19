@@ -47,7 +47,6 @@ const Chart = ({ aspect, title, coin }) => {
   const [endDate, setEndDate] = useState(today);
 
   let params = useParams();
-  console.log(params.influncerId);
   let apiUrl = "";
 
   const getHistory = () => {
@@ -63,14 +62,10 @@ const Chart = ({ aspect, title, coin }) => {
       }),
     })
       .then((res) => {
-        console.log("res=", res);
-        console.log("res.status", res.status);
-        console.log("res.ok", res.ok);
         return res.json();
       })
       .then(
         (result) => {
-          console.log(result);
           setData(result);
         },
         (error) => {

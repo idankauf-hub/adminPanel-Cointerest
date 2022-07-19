@@ -36,7 +36,6 @@ const Featured = () => {
   };
 
   const predTable = (predictions) => {
-    console.log(predictions)
     let a = predictions.slice(1,8).map((pred) => {
      return <div className="summary">
         <div className="item">
@@ -77,7 +76,6 @@ const Featured = () => {
       })
       .then(
         (result) => {
-          console.log(result);
           predTable(result)
           setWin(winRate(result));
           setMarginError(calcMarginError(result));

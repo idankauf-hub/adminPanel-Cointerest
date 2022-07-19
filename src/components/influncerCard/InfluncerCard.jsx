@@ -19,7 +19,6 @@ const InfluencerCard = (props) => {
       (data) => data.username === params.influncerId
     );
     setData(tmp);
-    console.log(tmp);
   };
 
   useEffect(() => {

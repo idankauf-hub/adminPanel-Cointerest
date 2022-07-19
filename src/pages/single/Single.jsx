@@ -10,7 +10,6 @@ const Single = (props) => {
   const [balance, setBalance] = useState();
 
   let params=useParams();
-  console.log(params.userId)
   const getUser=()=>{
     fetch("http://194.90.158.74/bgroup53/test2/tar4/api/Users/?email="+params.userId+"&n=1", {
       method: "GET",
@@ -23,7 +22,6 @@ const Single = (props) => {
       })
       .then(
         (result) => {
-          console.log(result);
           setData(result)  
         },
         (error) => {

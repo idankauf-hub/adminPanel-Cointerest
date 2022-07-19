@@ -211,7 +211,6 @@ export const coinsColumns = [
 
 ];
 
-//temporary data
 export const userRows = [
   {
     id: 1,

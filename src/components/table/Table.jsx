@@ -15,8 +15,6 @@ const List = (props) => {
   const [err, setErr] = useState(<div><h1>error</h1></div>);
 
   let params = useParams();
-  console.log(params.userId);
-  console.log(props.action);
 
   const getAssets = () => {
     fetch(
@@ -37,7 +35,6 @@ const List = (props) => {
       })
       .then(
         (result) => {
-          console.log(result);
           setAssets(result);
         },
         (error) => {
@@ -46,7 +43,6 @@ const List = (props) => {
       );
   };
   const getTrans = () => {
-    console.log(params.userId)
     fetch(
       `http://194.90.158.74/bgroup53/test2/tar4/api/Transactions/?email=${params.userId}&n=1` ,
       {
@@ -67,11 +63,9 @@ const List = (props) => {
       })
       .then(
         (result) => {
-          console.log(result);
           setTransactions(result);
         },
         (error) => {
-          console.log(error)
           setErr(error)
         }
       );

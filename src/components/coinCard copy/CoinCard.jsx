@@ -30,7 +30,6 @@ const CoinCard = (props) => {
           let result1 = result.filter(
             (word) => word.Coin_name == params.coinId
           );
-          console.log(result1[0].Coin_name);
           setData(result1);
         },
         (error) => {
@@ -56,7 +55,6 @@ const CoinCard = (props) => {
       })
       .then(
         (result) => {
-          console.log(result);
           setPred(result[0].Predicted_price);
         },
         (error) => {

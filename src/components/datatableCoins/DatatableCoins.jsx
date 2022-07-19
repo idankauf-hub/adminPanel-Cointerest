@@ -28,10 +28,7 @@ const DatatableCoins = (props) => {
       })
       .then(
         (result) => {
-          console.log("Coins res: " + JSON.stringify(result));
-          // coins=result
           setData(result);
-          console.log(coins);
         },
         (error) => {
           console.log("err post=", error);

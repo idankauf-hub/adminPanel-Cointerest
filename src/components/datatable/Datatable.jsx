@@ -13,7 +13,7 @@ const Datatable = (props) => {
   };
 
   const getUsers = () => {
-    fetch("http://194.90.158.74/bgroup53/test2/tar4/api/Users/?search=", {
+    fetch("http://194.90.158.74/bgroup53/test2/tar4/api/Users/?search=*", {
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json; charset=UTF-8",
@@ -27,7 +27,6 @@ const Datatable = (props) => {
       })
       .then(
         (result) => {
-          // users=result
           setData(result);
         },
         (error) => {
@@ -59,10 +58,7 @@ const Datatable = (props) => {
   useEffect(() => {
     getUsers();
   }, []);
-  // if(data == undefined){
-  //   alert("fff")
-  // return <div><p>hello</p></div>
-  // }
+
   return (
     <div className="datatable">
       <div className="datatableTitle">
