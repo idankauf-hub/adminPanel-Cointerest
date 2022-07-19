@@ -13,6 +13,7 @@ const Featured = () => {
   const [pred, setPred] = useState();
 
   const winRate = (predictions) => {
+    console.log(predictions)
     let hit = 0;
     var details = predictions.slice(1).map((pred) => {
       if (
@@ -24,6 +25,7 @@ const Featured = () => {
         hit++;
       } 
     });
+    console.log(hit)
     return (hit / Object.keys(predictions).length) * 100;
   };
 
